@@ -1,0 +1,33 @@
+<mat-toolbar color="dark">
+  <span>Novilis</span>
+  <span class="spacer"></span>
+  <button mat-raised-button color="warn" class="logout" routerLink="/login">Logout</button>
+</mat-toolbar>
+<div style=" padding:px">
+  <div class="container">
+    <button class="btn-tambah" mat-raised-button color="light" (click)="buat()">Tambah Novel</button>
+    <mat-card style="width: 100%;">
+      <mat-card-header>
+        <mat-card-title>Daftar Novel</mat-card-title>
+      </mat-card-header>
+      <mat-card-content>
+        <img src="assets/header-blog_feb_romance-novel-ok.png" width="1180px" height="210px">
+        <mat-list>
+          <mat-list-item *ngFor="let item of dataNovel" class="posisi1">
+            <span matListAvatar class="posisi">
+              <img style="height: 52px;" src="/assets/pngwing.com.png" alt="">
+            </span>
+            <h3 matLine><b>{{item.judul_novel}}</b></h3>
+            <p matLine>
+              <span> genre : {{item.genre}} </span>
+            </p>
+            <p matLine>
+              <span>Kutipan : {{item.Kutipan}}</span>
+            </p>
+            <button class="btn-edit" mat-stroked-button color="dark" (click)="edit(item)">Edit</button>
+            <button class="btn-delete" mat-stroked-button color="light" (click)="hapus(item.id)">Hapus</button>
+          </mat-list-item>
+        </mat-list>
+      </mat-card-content>
+    </mat-card>
+  </div>
